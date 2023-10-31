@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 import ErrorPage from "./error-page";
+import "./styles.css";
 
 import { useState, useEffect } from "react";
 
@@ -32,7 +33,7 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <Outlet context={productList} />
       <Footer />
     </>
   );

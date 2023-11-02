@@ -5,7 +5,7 @@ export default function Header() {
     <nav className="nav">
       <h1>
         <Link className="site-title" to="/">
-          Title
+          EcoCart
         </Link>
       </h1>
       <ul>

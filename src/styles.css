@@ -49,3 +49,11 @@ body {
 .nav li:hover {
   background-color: #777;
 }
+
+.shop-item > img {
+  width: 100px;
+}
+
+.checked {
+  color: orange;
+}

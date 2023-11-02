@@ -27,6 +27,10 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    console.log(productList);
+  }, [productList]);
+
   if (error) return <ErrorPage />;
   if (loading) return <p>Loading...</p>;
 

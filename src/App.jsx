@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [productList, setProductList] = useState([]);
+  const [cartList, setCartList] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,16 +29,27 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(productList);
+    let cartProducts = productList.map((item) => {
+      return { id: item.id, quantity: 0 };
+    });
+    setCartList(...cartList, cartProducts);
   }, [productList]);
+
+  useEffect(() => {
+    console.log(cartList);
+  }, [cartList]);
 
   if (error) return <ErrorPage />;
   if (loading) return <p>Loading...</p>;
 
+  const handleCart = () => {
+    console.log(cartList);
+  };
+
   return (
     <>
       <Header />
-      <Outlet context={productList} />
+      <Outlet context={{ productList: productList, handleCart: handleCart }} />
       <Footer />
     </>
   );

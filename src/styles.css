@@ -50,8 +50,12 @@ body {
   background-color: #777;
 }
 
-.shop-item > img {
+.shop-item img {
   width: 100px;
+}
+
+.item img {
+  width: 250px;
 }
 
 .checked {

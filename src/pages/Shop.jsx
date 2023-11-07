@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link, useParams, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import ShopItem from "../ShopItem";
 
 export default function Catalog() {
@@ -8,7 +7,7 @@ export default function Catalog() {
   return (
     <>
       <h1>Shop</h1>
-      {productList.map((item) => {
+      {productList.productList.map((item) => {
         return <ShopItem key={item.id} item={item} />;
       })}
     </>

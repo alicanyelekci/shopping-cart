@@ -29,27 +29,41 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let cartProducts = productList.map((item) => {
-      return { id: item.id, quantity: 0 };
-    });
-    setCartList(...cartList, cartProducts);
-  }, [productList]);
-
-  useEffect(() => {
-    console.log(cartList);
+    console.log("cartlist", cartList);
   }, [cartList]);
 
   if (error) return <ErrorPage />;
   if (loading) return <p>Loading...</p>;
 
-  const handleCart = () => {
-    console.log(cartList);
+  const handleCart = (addedItem) => {
+    const added = cartList.filter((item) => item.id === addedItem.id);
+    if (added.length === 0) {
+      const newObj = {
+        id: addedItem.id,
+        title: addedItem.title,
+        image: addedItem.image,
+        price: addedItem.price,
+        count: 1,
+      }; // Replace this with your actual object
+      setCartList((prevArray) => [...prevArray, newObj]);
+    } else {
+      const copiedCart = cartList.filter((item) => item.id !== addedItem.id);
+      added[0].count += 1;
+      const newCart = copiedCart.concat(added[0]);
+      setCartList(newCart);
+    }
   };
 
   return (
     <>
       <Header />
-      <Outlet context={{ productList: productList, handleCart: handleCart }} />
+      <Outlet
+        context={{
+          productList: productList,
+          handleCart: handleCart,
+          cartList: cartList,
+        }}
+      />
       <Footer />
     </>
   );

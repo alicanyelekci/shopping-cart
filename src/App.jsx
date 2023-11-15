@@ -28,28 +28,58 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    console.log("cartlist", cartList);
-  }, [cartList]);
-
   if (error) return <ErrorPage />;
   if (loading) return <p>Loading...</p>;
 
-  const handleCart = (addedItem) => {
-    const added = cartList.filter((item) => item.id === addedItem.id);
-    if (added.length === 0) {
+  const indexFinder = (itemIndex) => {
+    const index = cartList.findIndex((item) => item.id === itemIndex.id);
+    return index;
+  };
+
+  const increaseCart = (increasedItem) => {
+    const index = indexFinder(increasedItem);
+    const increased = cartList.filter((item) => item.id === increasedItem.id);
+    if (increased.length === 0) {
       const newObj = {
-        id: addedItem.id,
-        title: addedItem.title,
-        image: addedItem.image,
-        price: addedItem.price,
+        id: increasedItem.id,
+        title: increasedItem.title,
+        image: increasedItem.image,
+        price: increasedItem.price,
         count: 1,
-      }; // Replace this with your actual object
+      };
       setCartList((prevArray) => [...prevArray, newObj]);
     } else {
-      const copiedCart = cartList.filter((item) => item.id !== addedItem.id);
-      added[0].count += 1;
-      const newCart = copiedCart.concat(added[0]);
+      const copiedCart = cartList.filter(
+        (item) => item.id !== increasedItem.id,
+      );
+      increased[0].count += 1;
+      const newCart = [
+        ...copiedCart.slice(0, index),
+        increased[0],
+        ...copiedCart.slice(index),
+      ];
+      setCartList(newCart);
+    }
+  };
+
+  const decreaseCart = (decreasedItem) => {
+    const index = indexFinder(decreasedItem);
+    const decreased = cartList.filter((item) => item.id === decreasedItem.id);
+    if (decreased[0].count === 1) {
+      const copiedCart = cartList.filter(
+        (item) => item.id !== decreasedItem.id,
+      );
+      setCartList(copiedCart);
+    } else {
+      const copiedCart = cartList.filter(
+        (item) => item.id !== decreasedItem.id,
+      );
+      decreased[0].count -= 1;
+      const newCart = [
+        ...copiedCart.slice(0, index),
+        decreased[0],
+        ...copiedCart.slice(index),
+      ];
       setCartList(newCart);
     }
   };
@@ -60,7 +90,8 @@ function App() {
       <Outlet
         context={{
           productList: productList,
-          handleCart: handleCart,
+          increaseCart: increaseCart,
+          decreaseCart: decreaseCart,
           cartList: cartList,
         }}
       />

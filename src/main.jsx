@@ -18,12 +18,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        // element: <Home />,
         element: <Home />,
       },
       {
         path: "/shop",
-        // element: <Shop />,
         element: <Shop />,
       },
       {
@@ -32,12 +30,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        // element: <About />,
         element: <About />,
       },
       {
         path: "/cart",
-        // element: <Cart />,
         element: <Cart />,
       },
     ],

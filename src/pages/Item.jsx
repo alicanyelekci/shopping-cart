@@ -5,7 +5,7 @@ export default function Item() {
   const location = useLocation();
   const item = location.state;
 
-  const handleCart = useOutletContext();
+  const { increaseCart } = useOutletContext();
 
   return (
     <div className="item">
@@ -13,7 +13,7 @@ export default function Item() {
       <img src={item.image} />
       <div>${item.price}</div>
       <StarRating rating={item.rating.rate} count={item.rating.count} />
-      <button onClick={() => handleCart.handleCart(item)}>Add to Cart</button>
+      <button onClick={() => increaseCart(item)}>Add to Cart</button>
     </div>
   );
 }

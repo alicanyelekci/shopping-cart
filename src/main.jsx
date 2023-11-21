@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+
 import App from "./App";
 import ErrorPage from "./error-page";
 import Shop from "./pages/Shop";
-import About from "./pages/About";
 import Home from "./pages/Home";
 import Item from "./pages/Item";
 import Cart from "./pages/Cart";
@@ -27,10 +26,6 @@ const router = createBrowserRouter([
       {
         path: "/shop/:itemId",
         element: <Item />,
-      },
-      {
-        path: "/about",
-        element: <About />,
       },
       {
         path: "/cart",

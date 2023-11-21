@@ -3,8 +3,7 @@ export default function Home() {
     <div>
       <h2>Your Cart, Your Planet</h2>
       <p>
-        This is a mock shopping cart project done for a React learning project.
-        Enjoy!
+        This is a mock shopping cart project done as a React project. Enjoy!
       </p>
     </div>
   );

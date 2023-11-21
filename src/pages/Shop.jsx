@@ -6,10 +6,11 @@ export default function Catalog() {
 
   return (
     <>
-      <h1>Shop</h1>
-      {productList.map((item) => {
-        return <ShopItem key={item.id} item={item} />;
-      })}
+      <div className="shop-container">
+        {productList.map((item) => {
+          return <ShopItem key={item.id} item={item} />;
+        })}
+      </div>
     </>
   );
 }

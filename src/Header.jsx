@@ -15,12 +15,9 @@ export default function Header() {
       </ul>
       <ul>
         <li>
-          <Link to="/about">About Us</Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </Link>
         </li>
       </ul>
     </nav>

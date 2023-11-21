@@ -9,7 +9,6 @@ export default function Cart() {
 
   return (
     <>
-      <div>Cart</div>
       {cartList.map((item) => {
         return (
           <div key={item.id} className="cart-item">

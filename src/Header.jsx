@@ -5,7 +5,7 @@ export default function Header() {
     <nav className="nav">
       <h1>
         <Link className="site-title" to="/">
-          EcoCart
+          GadgetCart
         </Link>
       </h1>
       <ul>
@@ -16,7 +16,7 @@ export default function Header() {
       <ul>
         <li>
           <Link to="/cart">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </Link>
         </li>
       </ul>

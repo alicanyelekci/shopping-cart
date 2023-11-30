@@ -1,7 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 
 export default function Cart() {
-  const { cartList, increaseCart, decreaseCart } = useOutletContext();
+  const { cartList, increaseCart, decreaseCart, emptyCart } =
+    useOutletContext();
 
   const total = cartList.reduce((acc, item) => {
     return acc + item.price * item.count;
@@ -9,6 +10,7 @@ export default function Cart() {
 
   return (
     <>
+      {total !== 0 ? <div onClick={() => emptyCart()}>EMPTY CART</div> : <></>}
       {cartList.map((item) => {
         return (
           <div key={item.id} className="cart-item">
@@ -26,7 +28,8 @@ export default function Cart() {
           </div>
         );
       })}
-      <div>TOTAL = ${total.toFixed(2)}</div>
+      {total !== 0 ? <div>TOTAL = ${total.toFixed(2)}</div> : <></>}
+      {total !== 0 ? <div>CHECKOUT</div> : <></>}
     </>
   );
 }

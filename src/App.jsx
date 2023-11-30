@@ -84,6 +84,10 @@ function App() {
     }
   };
 
+  const emptyCart = () => {
+    setCartList([]);
+  };
+
   return (
     <>
       <Header />
@@ -92,6 +96,7 @@ function App() {
           productList: productList,
           increaseCart: increaseCart,
           decreaseCart: decreaseCart,
+          emptyCart: emptyCart,
           cartList: cartList,
         }}
       />

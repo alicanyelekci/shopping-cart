@@ -9,11 +9,19 @@ export default function Item() {
 
   return (
     <div className="item">
-      <div>{item.title}</div>
-      <img src={item.image} />
-      <div>${item.price}</div>
-      <StarRating rating={item.rating.rate} count={item.rating.count} />
-      <button onClick={() => increaseCart(item)}>Add to Cart</button>
+      <div className="title">{item.title}</div>
+      <div className="img-container">
+        <img className="image" src={item.image} />
+      </div>
+      <div className="price">${item.price}</div>
+      <StarRating
+        rating={item.rating.rate}
+        count={item.rating.count}
+        className="rating"
+      />
+      <button className="addBtn" onClick={() => increaseCart(item)}>
+        Add to Cart
+      </button>
     </div>
   );
 }

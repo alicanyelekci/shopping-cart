@@ -28,7 +28,7 @@ body {
 }
 
 .nav {
-  background-color: #333;
+  background-color: #562800;
   color: white;
   display: grid;
   grid-template-columns: 2fr 15fr 1fr;
@@ -74,8 +74,61 @@ body {
   max-height: 150px;
 }
 
-.item img {
-  width: 250px;
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 4fr;
+  background-color: #ffe0c2;
+  height: 100vh;
+  width: 100vw;
+  gap: 1rem;
+}
+
+.item > .img-container {
+  padding: 5rem;
+  height: 90%;
+  width: 50vw;
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+  place-self: center;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item > .img-container > .image {
+  width: 40vw;
+  height: auto;
+  display: block;
+  background-color: white;
+}
+
+.item > .title {
+  padding-top: 5rem;
+  font-weight: bold;
+  font-size: 2rem;
+  place-self: start start;
+}
+.item > .price {
+  font-size: 1.5rem;
+  place-self: end start;
+}
+.item > .rating {
+  font-size: 1rem;
+  place-self: start start;
+}
+.item > .addBtn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  place-self: start start;
+  width: 15rem;
+  height: 3rem;
+  background-color: #ffa057;
+  color: #331e0b;
+  border-radius: 1rem;
+  border: 0;
 }
 
 .checked {
@@ -86,10 +139,10 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 5px;
-  padding: 5px;
+  padding: 2rem;
   background-color: white;
   width: 100%;
-  background-color: #e1e1e1;
+  background-color: #ffe0c2;
 }
 
 .shop-item {
@@ -137,7 +190,7 @@ body {
 }
 
 .footer {
-  background-color: #333;
+  background-color: #562800;
   color: white;
   width: 100vw;
   display: flex;

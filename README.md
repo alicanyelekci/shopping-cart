@@ -1,3 +1,3 @@
 # Shopping Cart App
 
-Demo Link: thunderous-sable-f0730e.netlify.app
+Demo Link: https://thunderous-sable-f0730e.netlify.app

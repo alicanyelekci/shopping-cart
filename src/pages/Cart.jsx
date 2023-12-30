@@ -11,9 +11,7 @@ export default function Cart() {
   return (
     <div className="cart-container">
       {total === 0 ? (
-        <div className="empty-cart" onClick={() => emptyCart()}>
-          Looks like your cart is empty!
-        </div>
+        <div className="empty-cart">Looks like your cart is empty!</div>
       ) : (
         <></>
       )}
@@ -22,30 +20,30 @@ export default function Cart() {
           <div key={item.id} className="cart-item">
             <div className="title">{item.title}</div>
             <img src={item.image} />
-            <div className="price">${item.price}</div>
+            <div className="price">${(item.price * item.count).toFixed(2)}</div>
             <div className="count">
               <div className="quantity">{item.count}</div>
               <div className="increase" onClick={() => increaseCart(item)}>
                 +
               </div>
-              {item.count === 1 ? (
-                <div className="decrease" onClick={() => decreaseCart(item)}>
-                  Remove
-                </div>
-              ) : (
-                <div className="decrease" onClick={() => decreaseCart(item)}>
-                  -
-                </div>
-              )}
-            </div>
-            <div className="subtotal">
-              Subtotal = ${(item.price * item.count).toFixed(2)}
+              <div className="decrease" onClick={() => decreaseCart(item)}>
+                -
+              </div>
             </div>
           </div>
         );
       })}
-      {total !== 0 ? <div>TOTAL = ${total.toFixed(2)}</div> : <></>}
-      {total !== 0 ? <div>CHECKOUT</div> : <></>}
+      {total !== 0 ? (
+        <div className="checkout">
+          <div className="empty-the-cart" onClick={() => emptyCart()}>
+            EMPTY CART
+          </div>
+          <div className="go-to-checkout">GO TO CHECKOUT</div>
+          <div className="total">TOTAL ${total.toFixed(2)}</div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

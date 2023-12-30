@@ -36,6 +36,14 @@ function App() {
     return index;
   };
 
+  const flash = () => {
+    document.querySelector(".cart-icon").classList.add("flash");
+
+    setTimeout(function () {
+      document.querySelector(".cart-icon").classList.remove("flash");
+    }, 1000);
+  };
+
   const increaseCart = (increasedItem) => {
     const index = indexFinder(increasedItem);
     const increased = cartList.filter((item) => item.id === increasedItem.id);
@@ -60,6 +68,7 @@ function App() {
       ];
       setCartList(newCart);
     }
+    flash();
   };
 
   const decreaseCart = (decreasedItem) => {

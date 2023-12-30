@@ -16,7 +16,7 @@ export default function Header() {
       <ul>
         <li>
           <Link to="/cart">
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i className="cart-icon fa fa-shopping-cart" aria-hidden="true"></i>
           </Link>
         </li>
       </ul>

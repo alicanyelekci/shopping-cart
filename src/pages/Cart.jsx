@@ -38,7 +38,9 @@ export default function Cart() {
           <div className="empty-the-cart" onClick={() => emptyCart()}>
             EMPTY CART
           </div>
-          <div className="go-to-checkout">GO TO CHECKOUT</div>
+          <div className="go-to-checkout" onClick={() => alert("CHECKOUT!")}>
+            GO TO CHECKOUT
+          </div>
           <div className="total">TOTAL ${total.toFixed(2)}</div>
         </div>
       ) : (

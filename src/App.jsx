@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 
 import Header from "./Header";
@@ -5,13 +6,13 @@ import Footer from "./Footer";
 import ErrorPage from "./error-page";
 import "./styles.css";
 
-import { useState, useEffect } from "react";
-
 function App() {
   const [productList, setProductList] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const cartRef = useRef(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -37,11 +38,13 @@ function App() {
   };
 
   const flash = () => {
-    document.querySelector(".cart-icon").classList.add("flash");
+    const cart = cartRef.current;
+
+    cart.classList.add("flash");
 
     setTimeout(function () {
-      document.querySelector(".cart-icon").classList.remove("flash");
-    }, 1000);
+      cart.classList.remove("flash");
+    }, 250);
   };
 
   const increaseCart = (increasedItem) => {
@@ -99,7 +102,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cartRef={cartRef} />
       <Outlet
         context={{
           productList: productList,

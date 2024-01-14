@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ cartRef }) {
   return (
     <nav className="nav">
       <h1>
@@ -16,7 +16,11 @@ export default function Header() {
       <ul>
         <li>
           <Link to="/cart">
-            <i className="cart-icon fa fa-shopping-cart" aria-hidden="true"></i>
+            <i
+              ref={cartRef}
+              className="cart-icon fa fa-shopping-cart"
+              aria-hidden="true"
+            ></i>
           </Link>
         </li>
       </ul>

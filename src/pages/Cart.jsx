@@ -1,12 +1,15 @@
+import { useMemo } from "react";
 import { useOutletContext } from "react-router-dom";
 
 export default function Cart() {
   const { cartList, increaseCart, decreaseCart, emptyCart } =
     useOutletContext();
 
-  const total = cartList.reduce((acc, item) => {
-    return acc + item.price * item.count;
-  }, 0);
+  const total = useMemo(() => {
+    return cartList.reduce((acc, item) => {
+      return acc + item.price * item.count;
+    }, 0);
+  }, [cartList]);
 
   return (
     <div className="cart-container">
